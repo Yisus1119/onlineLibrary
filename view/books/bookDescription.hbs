@@ -1,0 +1,29 @@
+<section class="py-2 text-center container">
+    <div class="row py-lg-5">
+        <div class="col-lg-6 col-md-8 mx-auto">
+            {{#each bookList as |book|}}
+            <h1 class="fw-light text-light">Titulo del libro</h1>
+            <p class="lead text-light">{{book.TituloLibro}}</p>
+        </div>
+    </div>
+</section>
+
+<div class="container">
+    <div class="row  text-center">
+
+        <center>
+            <!-- no usen la etiqueta center ni loco, yo la uso porque estoy totao del caco -->
+            <div class="card" style="width: 18rem;">
+                <img src="{{book.urlImage}}" class="card-img-top" alt="...">
+            </div>
+        </center>
+
+        <h4 class="description"><u>Fecha de creación:</u> {{book.AgeLibro}}</h4>
+        <h4 class="description"><u>Categoria:</u> {{book.CategoriaLibro}}</h4>
+        <h4 class="description"><u>Autor:</u> {{book.AutorLibro}}</h4>
+        <h4 class="description"><u>Editorial:</u> {{book.NombreEditorial}}</h4>
+    </div>
+</div>
+
+<!-- ojo, arreglar esta parte>
+{{/each}}

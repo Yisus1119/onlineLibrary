@@ -1,0 +1,31 @@
+<section class="py-2 text-center container">
+  <div class="row py-lg-5">
+    <div class="col-lg-6 col-md-8 mx-auto">
+      <h1 class="fw-light text-light">Books App</h1>
+      <p class="lead text-light">Una biblioteca totalmente online.</p>
+    </div>
+  </div>
+</section>
+
+<div class="container">
+  <div class="row  text-center">
+    {{#each bookList as |book|}}
+
+    <div class="card" style="width: 18rem;">
+      <img src="{{book.urlImage}}" class="card-img-top" alt="...">
+
+      <div class="card-body">
+        <h5 class="card-title">{{book.TituloLibro}}</h5>
+        <h6 class="card-subtitle mb-2 text-muted">{{book.AgeLibro}}</h6>
+        <p class="card-text">Categoria: {{book.CategoriaLibro}}</p>
+        <p class="card-text">Autor del libro: {{book.AutorLibro}}</p>
+        <p class="card-text">Editorial: {{book.NombreEditorial}}</p>
+        <a href="/description" class="btn btn-success">Más información</a>
+
+      </div>
+    </div>
+    {{/each}}
+
+  </div>
+
+</div>

@@ -1,0 +1,33 @@
+<section class="py-2 text-center container">
+    <div class="row py-lg-5">
+        <div class="col-lg-6 col-md-8 mx-auto">
+            <h1 class="fw-light text-light">Listado de editoriales</h1>
+            <p>
+                <a href="/formEditorial" class="btn btn-success my-2">Crear nuevo editorial</a>
+            </p>
+        </div>
+    </div>
+</section>
+
+<div class="container">
+    <div class="row">
+        {{#each editorialList as |editorial|}}
+
+        <div class="card col-md-3">
+            <div class="card-body">
+                <h5 class="card-title">{{editorial.NombreEditorial}}</h5>
+                <h6 class="card-subtitle mb-2 text-muted">{{editorial.TelefonoEditorial}}</h6>
+                <p class="card-text">{{editorial.PaisEditorial}}</p>
+                <a href="/edit-editorial/{{editorial.idEditorial}}?edit=true" class="btn btn-success">Editar</a>
+
+                <form class="form-inline" action="/delete-editorial" method="POST">
+                    <input type="hidden" name="idEditorial" value="{{editorial.idEditorial}}" />
+                    <button type="submit" href="#" class="btn btn-danger ">Eliminar</button>
+                </form>
+            </div>
+        </div>
+
+        {{/each}}
+
+    </div>
+</div>

@@ -1,0 +1,85 @@
+<div class="row">
+
+    <div class="col-md-3"> </div>
+    <div class="col-md-6">
+
+        <div class="card">
+            <div class="card-header bg-dark text-white">
+                {{#if editMode}} Edicion{{else}}Creacion{{/if}} de libros</div>
+            <div class="card-body">
+
+                <form method="POST" action="{{#if editMode}}/edit-book {{else}}/createBook{{/if}}">
+                    <!--{{#if editMode}}/edit-heroes {{else}}/createBook{{/if}} -->
+
+                    <div class="mb-3">
+                        <label for="image" class="form-label">URL de la imagen de portada</label>
+                        <input type="text" class="form-control" id="image" name="Image"
+                            value="{{#if editMode}}{{book.urlImage}}{{/if}}" required>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="titulo" class="form-label">Título</label>
+                        <input type="text" class="form-control" id="titulo" name="Titulo"
+                            value="{{#if editMode}}{{book.TituloLibro}}{{/if}}" required>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="age" class="form-label">Año de publicación</label>
+                        <input type="text" class="form-control" id="age" name="Age"
+                            value="{{#if editMode}}{{book.AgeLibro}}{{/if}}" required>
+                    </div>
+
+                    <!-- estaba teniendo unos errores que no logré decifrar, metí esto manual -->
+                    <div class="mb-3">
+                        <label for="categoria" class="form-label">Categoria:</label>
+                        <select class="form-select" aria-label="Default select example" id="categoria" name="Categoria">
+                            <option disabled selected>{{book.CategoriaLibro}}</option>
+                            <option value="Accion">Acción</option>
+                            <option value="Romance">Romance</option>
+                            <option value="Misterio">Misterio</option>
+                            <option value="Historia">Historia</option>
+                            <option value="Ensayo">Ensayo</option>
+                        </select>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="autor" class="form-label">Autores:</label>
+                        <select class="form-select" aria-label="Default select example" id="autor" name="Autor">
+                            <option disabled selected>{{book.AutorLibro}}</option>
+                            <option value="Paulo Coelho">Paulo Coelho</option>
+                            <option value="Gabriel Garcia Marquez">Gabriel Garcia Marqueznce</option>
+                            <option value="William Shakespeare">William Shakespeare</option>
+                            <option value="Miguel de Cervantes">Miguel de Cervantes</option>
+                            <option value="Edgar Allan Poe">Edgar Allan Poe</option>
+                        </select>
+                    </div>
+
+
+                    <div class="mb-3">
+                        <label for="editorial" class="form-label">Editorial:</label>
+                        <!-- cambiar modo de visualizacion -->
+                        <select class="form-select" aria-label="Default select example" id="editorial" name="Editorial">
+                            <option disabled selected>{{book.NombreEditorial}}</option>
+                            <option value="Alianza ">Alianza </option>
+                            <option value="Cátedra ">Cátedra </option>
+                            <option value="Marcial Pons">Marcial Pons</option>
+                            <option value="Tecnos">Tecnos</option>
+                            <option value="Aranzadi ">Aranzadi </option>
+                        </select>
+                    </div>
+
+
+                    {{#if editMode}}
+                    <input type="hidden" name="bookId" value="{{book.idLibro}}">
+                    {{/if}}
+
+                    <button type="submit" class="btn btn-primary">{{#if editMode}}Editar{{else}}Crear{{/if}}</button>
+                    <a href="/libros" type="button" class="btn btn-warning">Volver atras</a>
+                </form>
+
+
+            </div>
+
+        </div>
+    </div>
+</div>

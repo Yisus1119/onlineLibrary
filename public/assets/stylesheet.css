@@ -1,0 +1,27 @@
+.error {
+    text-align: center;
+    margin-top: 10em;
+    color: white;
+}
+
+section {
+    margin-top: 2em;
+}
+
+.card {
+    margin-left: 28px;
+    margin-top: 1em;
+    margin-bottom: 1em;
+}
+
+.container {
+    background-color: #082032;
+}
+
+.form-inline{
+    display: inline;
+}
+
+.description{
+    color: rgb(255, 255, 255);
+}

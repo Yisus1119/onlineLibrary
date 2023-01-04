@@ -1,0 +1,33 @@
+<section class="py-2 text-center container">
+    <div class="row py-lg-5">
+        <div class="col-lg-6 col-md-8 mx-auto">
+            <h1 class="fw-light text-light">Listado de autores</h1>
+            <p>
+                <a href="/formAuthor" class="btn btn-success my-2">Registrar nuevo autor</a>
+            </p>
+        </div>
+    </div>
+</section>
+
+<div class="container">
+    <div class="row">
+        {{#each authorList as |author|}}
+
+        <div class="card col-md-3">
+            <div class="card-body">
+                <h5 class="card-title">{{author.NombreAutor}}</h5>
+                <h6 class="card-subtitle mb-2 text-muted">{{author.CorreoAutor}}</h6>
+                <p class="card-text">Cantidad de libros asociados</p>
+                <a href="/edit-author/{{author.idAutor}}?edit=true" class="btn btn-success">Editar</a>
+
+                <form class="form-inline" action="/delete-author" method="POST">
+                    <input type="hidden" name="idAutor" value="{{author.idAutor}}" />
+                    <button type="submit" href="#" class="btn btn-danger ">Eliminar</button>
+                </form>
+            </div>
+        </div>
+
+        {{/each}}
+
+    </div>
+</div>

@@ -1,0 +1,37 @@
+<section class="py-2 text-center container">
+    <div class="row py-lg-2">
+        <div class="col-lg-6 col-md-8 mx-auto">
+            <h1 class="fw-light text-light">Listado de libros</h1>
+            <p>
+                <a href="/formBooks" class="btn btn-success my-2">Crear nuevo libro</a>
+            </p>
+        </div>
+    </div>
+</section>
+
+<div class="container">
+    <div class="row  text-center">
+        {{#each bookList as |book|}}
+
+        <div class="card" style="width: 18rem;">
+            <img src="{{book.urlImage}}" class="card-img-top" alt="...">
+
+            <div class="card-body">
+                <h5 class="card-title">{{book.TituloLibro}}</h5>
+                <h6 class="card-subtitle mb-2 text-muted">{{book.AgeLibro}}</h6>
+                <p class="card-text">Categoria: {{book.CategoriaLibro}}</p>
+                <p class="card-text">Autor del libro: {{book.AutorLibro}}</p>
+                <p class="card-text">Editorial: {{book.NombreEditorial}}</p>
+                <a href="/edit-book/{{book.idLibro}}?edit=true" class="btn btn-info ">Editar</a>
+
+                <form class="form-inline" action="/delete-book" method="POST">
+                    <input type="hidden" name="bookId" value="{{book.idLibro}}" />
+                    <button type="submit" href="#" class="btn btn-danger ">Eliminar</button>
+                </form>
+
+            </div>
+        </div>
+        {{/each}}
+    </div>
+
+</div>
